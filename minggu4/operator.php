@@ -34,4 +34,17 @@ echo "Variabel a lebih kecil dari b: <u>$hasillebihKecil</u>.<br>";
 echo "Variabel a lebih kecil dari sama dengan b: <u>$hasillebihKecilSama</u>.<br>";
 echo "Variabel a lebih besar dari b: <u>$hasillebihBesar</u>.<br>";
 echo "Variabel a lebih besar dari sama dengan b: <u>$hasillebihBesarSama</u>.<br>";
+
+$hasilAnd = $a && $b;
+$hasilOr = $a || $b;
+$hasilNotA = !$a;
+$hasilNotB = !$b;
+
+echo "<br>";
+echo "Variabel a: {$a}<br>";
+echo "Variabel b: {$b}<br>";
+echo "Variabel a && b: <u>$hasilAnd</u>.<br>";
+echo "Variabel a || b: <u>$hasilOr</u>.<br>";
+echo "Variabel !a: <u>$hasilNotA</u>.<br>";
+echo "Variabel !b: <u>$hasilNotB</u>.<br>";
 ?>
