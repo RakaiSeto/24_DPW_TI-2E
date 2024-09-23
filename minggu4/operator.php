@@ -47,4 +47,19 @@ echo "Variabel a && b: <u>$hasilAnd</u>.<br>";
 echo "Variabel a || b: <u>$hasilOr</u>.<br>";
 echo "Variabel !a: <u>$hasilNotA</u>.<br>";
 echo "Variabel !b: <u>$hasilNotB</u>.<br>";
+
+$hasilATambahB = $a + $b;
+$hasilAKurangB = $a - $b;
+$hasilAKaliB = $a * $b;
+$hasilABagiB = $a / $b;
+$sisaBagi = $a % $b;
+
+echo "<br>";
+echo "Variabel a: {$a}<br>";
+echo "Variabel b: {$b}<br>";
+echo "Variabel a + b: <u>$hasilATambahB</u>.<br>";
+echo "Variabel a - b: <u>$hasilAKurangB</u>.<br>";
+echo "Variabel a * b: <u>$hasilAKaliB</u>.<br>";
+echo "Variabel a / b: <u>$hasilABagiB</u>.<br>";
+echo "Variabel a % b: <u>$sisaBagi</u>.<br>";
 ?>
