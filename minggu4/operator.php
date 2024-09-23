@@ -62,4 +62,13 @@ echo "Variabel a - b: <u>$hasilAKurangB</u>.<br>";
 echo "Variabel a * b: <u>$hasilAKaliB</u>.<br>";
 echo "Variabel a / b: <u>$hasilABagiB</u>.<br>";
 echo "Variabel a % b: <u>$sisaBagi</u>.<br>";
+
+$hasilIdentik = $a === $b;
+$hasiltidakIdentik = $a !== $b;
+
+echo "<br>";
+echo "Variabel a: {$a}<br>";
+echo "Variabel b: {$b}<br>";
+echo "Variabel a === b: <u>$hasiltidakIdentik</u>.<br>";
+echo "Variabel a !== b: <u>$hasilIdentik</u>.<br>";
 ?>
