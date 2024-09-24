@@ -47,4 +47,14 @@
 
     echo "<br>";
     echo "Total skor ujian: $totalSkor";
+
+    $nilaiSiswa = [85, 92, 58, 64, 90, 55, 89, 79, 70, 96];
+
+    foreach ($nilaiSiswa as $nilai) {
+        if ($nilai < 60) {
+            echo "Nilai: $nilai tidak lulus <br>";
+            continue;
+        }
+        echo "Nilai: $nilai lulus <br>";
+    }
 ?>
