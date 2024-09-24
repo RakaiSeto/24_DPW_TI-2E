@@ -46,6 +46,6 @@ $daftarNilai = [
 $matakuliah = 'Fisika';
 echo "Daftar nilai mahasiswa dalam mata kuliah $matakuliah: <br>";
 foreach ($daftarNilai [$matakuliah] as $nilai) {
-    echo "Nama: ($nilai[0]), Nilai: ($nilai[1]) <br>";
+    echo "Nama: ($nilai[0]), Nilai: ($nilai[1]] <br>";
 }
 ?>
