@@ -37,13 +37,13 @@ function tampilkanMenuBertingkat(array $menu) {
     echo "<ul>";
     foreach ($menu as $item) {
         echo "<li>{$item['nama']}</li>";
-//        if (isset($item['subMenu'])) {
-//            echo "<ul>";
-//            foreach ($item['subMenu'] as $subItem) {
-//                echo "<li>{$subItem['nama']}</li>";
-//            }
-//            echo "</ul>";
-//        }
+        if (isset($item['subMenu'])) {
+            echo "<ul>";
+            foreach ($item['subMenu'] as $subItem) {
+                echo "<li>{$subItem['nama']}</li>";
+            }
+            echo "</ul>";
+        }
     }
     echo "</ul>";
 }
