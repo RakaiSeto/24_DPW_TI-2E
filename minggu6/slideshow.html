@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styleSlideShow.css">
+        <script src="jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <div id="slider">
+            <img class="sliderImage" src="gambar1.jpg" alt="Gambar 1">
+            <div class="slidertitle" id="title1">Gambar 1</div>
+            <img class="sliderImage" src="gambar2.jpg" alt="Gambar 2">
+            <div class="slidertitle" id="title2">Gambar 2</div>
+            <img class="sliderImage" src="gambar3.jpg" alt="Gambar 3">
+            <div class="slidertitle" id="title3">Gambar 3</div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                let i = 0;
+                $('.sliderImage, .slidertitle').hide();
+                setInterval(function() {
+                    $('.sliderImage, .slidertitle').fadeOut(1000);
+                    $('#sliderImage' + ++i).fadeIn(1000);
+                    $('#title' + i).fadeIn(1000);
+                    if (i === 3) i = 0;
+                }, 3000);
+            });
+        </script>
+    </body>
+</html>
