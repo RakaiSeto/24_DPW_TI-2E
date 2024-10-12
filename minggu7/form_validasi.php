@@ -13,6 +13,8 @@
             <input type="text" id="email" name="email">
             <span id="email-error" style="color: red;"></span><br>
             <input type="submit" value="Submit">
+            <br>
+            <div id="hasil"></div>
         </form>
 
         <script>
@@ -38,6 +40,23 @@
 
                     if (!valid) {
                         event.preventDefault(); // Mencegah pengiriman form jika validasi gagal
+                    } else {
+                        // Jika validasi berhasil, lanjutkan dengan pemrosesan data
+                        event.preventDefault(); // Mencegah pengiriman form secara default
+
+                        // Mengumpulkan data form
+                        var formData = $("#myForm").serialize();
+
+                        // Kirim data ke server PHP menggunakan AJAX
+                        $.ajax({
+                            url: "proses_validasi.php", // Ganti dengan nama file PHP yang sesuai
+                            type: "POST",
+                            data: formData,
+                            success: function(response) {
+                                // Tampilkan hasil dari server di div "hasil"
+                                $("#hasil").html(response);
+                            }
+                        });
                     }
                 });
             });
