@@ -8,6 +8,8 @@
         <form method="post" action="html_aman.php">
             <label for="nama">Nama:</label>
             <input type="text" name="input" id="input" required><br><br>
+            <label for="nama">Email:</label>
+            <input type="text" name="email" id="email" required><br><br>
             <button type="submit">Submit</button>
         </form>
     </body>
