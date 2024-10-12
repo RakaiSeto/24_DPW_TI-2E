@@ -6,5 +6,9 @@
         echo "Array tidak kosong";
     }
 
-
+    if (empty($nonExist)) {
+        echo "Variabel tidak ada";
+    } else {
+        echo "Variabel ada";
+    }
 ?>
