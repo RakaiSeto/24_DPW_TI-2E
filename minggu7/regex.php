@@ -7,4 +7,13 @@ if (preg_match($pattern, $text)) {
 } else {
     echo "Teks tidak berisi huruf";
 }
+
+$pattern = '/[0-9]+/';
+$text = "There are 123 Apples";
+
+if (preg_match($pattern, $text)) {
+    echo "Teks berisi angka";
+} else {
+    echo "Teks tidak berisi angka";
+}
 ?>
