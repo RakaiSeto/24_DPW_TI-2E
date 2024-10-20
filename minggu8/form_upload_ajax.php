@@ -5,7 +5,7 @@
 <body>
     <h2>Upload File</h2>
     <form id="upload-form" method="post" action="upload_ajax.php" enctype="multipart/form-data">
-        <input type="file" name="file" id="file">
+        <input type="file" name="files[]" multiple id="file">
         <input type="submit" name="submit" value="Unggah">
     </form>
     <div id="status"></div>
@@ -16,7 +16,11 @@
             $("#upload-form").submit(function (e){
                 e.preventDefault();
 
-                var formData = new FormData(this);
+                var formData = new FormData();
+
+                for (var i = 0; i < $("#file")[0].files.length; i++) {
+                    formData.append("files[]", $("#file")[0].files[i]);
+                }
 
                 $.ajax({
                     type: "POST",

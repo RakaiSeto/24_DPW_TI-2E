@@ -22,12 +22,13 @@
                     type: "POST",
                     url: "upload_ajax.php",
                     data: formData,
+                    cache: false,
                     processData: false,
                     contentType: false,
                     success: function(data){
                         $("#status").html(data);
                     }
-                    error: function(data){
+                    error: function(){
                         $("#status").html("Terjadi kesalahan saat mengupload file");
                     }
                 });
