@@ -1,5 +1,5 @@
 <?php
-$targetDirectory = "documents/";
+$targetDirectory = "images/";
 
 if (!file_exists($targetDirectory)) {
     mkdir($targetDirectory, 0777, true);
