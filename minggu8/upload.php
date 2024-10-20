@@ -8,5 +8,7 @@ if (isset($_POST["submit"])) {
     } else {
         echo "Gagal mengupload file";
     }
+} else {
+    echo "tidak muncul apa2";
 }
 ?>

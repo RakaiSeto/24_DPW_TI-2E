@@ -6,7 +6,7 @@
     <h2>Upload File</h2>
     <form method="post" action="upload.php" enctype="multipart/form-data">
         <input type="file" name="myfile">
-        <input type="submit" value="submit">
+        <input type="submit" name="submit" value="submit">
     </form>
 </body>
 </html>
