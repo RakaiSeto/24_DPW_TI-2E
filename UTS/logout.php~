@@ -1,0 +1,7 @@
+<?php
+// unset session
+$_COOKIE["username"] = null;
+
+// redirect to login page
+header("location:index.html");
+?>
