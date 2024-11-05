@@ -32,4 +32,4 @@ if ($aksi == "tambah") {
     }
 }
 
-mysqli_error()
+mysqli_close($koneksi);

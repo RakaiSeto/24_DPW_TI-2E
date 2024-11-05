@@ -35,8 +35,8 @@
                             echo "<td>" . $kelamin . "</td>";
                             echo "<td>" . $row['no_telp'] . "</td>";
                             echo "<td>";
-                                echo "<a href='edit.php?id=" . $row['id'] . "' class='btn-edit'>Edit</a>";
-                                echo "<a href='#' onclick='konfirmasiHapus(" . $row['id'] . ", \"" . $row['nama'] . "\")' class='btn-hapus'>Hapus</a>";
+                                echo "<a href='edit.php?id=" . $row['id'] . "' class='btn-edit'>Edit</a><br>";
+                                echo "<a href='#' data-id='" . $row['id'] . "' data-nama='" . $row['nama'] . "' class='btn-hapus'>Hapus</a>";
                             echo "</td>";
                         echo "</tr>";
                         $no++;
@@ -49,12 +49,7 @@
             ?>
         </div>
         <script>
-            function konfirmasiHapus(id, nama) {
-                var konfirmasi =  confirm("Apakah anda yakin ingin menghapus data dengan Nama " + nama + "?");
-                if konfirmasi {
-                    window.location.href = "proses.php?aksi=hapus&id=" + id;
-                }
-            }
+            document.getElementsByClassName("btn-hapus")
         </script>
     </body>
 </html>

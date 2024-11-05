@@ -36,7 +36,7 @@
                             echo "<td>" . $row['no_telp'] . "</td>";
                             echo "<td>";
                                 echo "<a href='edit.php?id=" . $row['id'] . "' class='btn-edit'>Edit</a><br>";
-                                echo "<a href='#' onclick='konfirmasiHapus(" . $row['id'] . ", \"" . $row['nama'] . "\")' class='btn-hapus'>Hapus</a>";
+                                echo "<a href='#' data-id='" . $row['id'] . "' data-nama='" . $row['nama'] . "' class='btn-hapus'>Hapus</a>";
                             echo "</td>";
                         echo "</tr>";
                         $no++;
@@ -49,11 +49,16 @@
             ?>
         </div>
         <script>
-            function konfirmasiHapus(id, nama) {
-                var konfirmasi =  confirm("Apakah anda yakin ingin menghapus data dengan Nama " + nama + "?");
-                if konfirmasi {
-                    window.location.href = "proses.php?aksi=hapus&id=" + id;
-                }
+            var btnHapus = document.getElementsByClassName("btn-hapus")
+
+            for (var i = 0; i < btnHapus.length; i++) {
+                btnHapus[i].addEventListener("click", function() {
+                    var id = this.getAttribute("data-id");
+                    var nama = this.getAttribute("data-nama");
+                    if (confirm("Apakah anda yakin ingin menghapus data " + nama + "?")) {
+                        window.location.href = "proses.php?aksi=hapus&id=" + id;
+                    }
+                })
             }
         </script>
     </body>
