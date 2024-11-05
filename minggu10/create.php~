@@ -20,7 +20,7 @@
                 <label for="no_telp">No. Telp:</label>
                 <input type="text" name="no_telp" id="no_telp" required>
                 <button type="submit">Simpan data</button>
-                <a href="index.php" class="btn-kembali" 
+                <a href="index.php" class="btn-kembali">Kembali</a>
             </form>
         </div>
     </body>
