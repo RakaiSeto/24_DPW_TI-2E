@@ -2,54 +2,91 @@
 <html>
     <head>
         <title>Data Anggota</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <body>
+
+        <?php
+        include('koneksi.php');
+
+        $query = "SELECT * FROM anggota ORDER BY id DESC";
+        $result = mysqli_query($koneksi, $query);
+        ?>
+
         <div class="container">
             <h2>Data Anggota</h2>
-            <a href="create.php" class="btn-tambah">Tambah anggota</a>
-            <br>
-            <?php
-                include("koneksi.php");
-
-                $query = "SELECT * FROM anggota";
-                $result = mysqli_query($koneksi, $query);
-
-                if (mysqli_num_rows($result) > 0) {
-                    $no = 1;
-                    echo "<table>";
-                        echo "<tr>";
-                            echo "<th>No</th>";
-                            echo "<th>Nama</th>";
-                            echo "<th>Alamat</th>";
-                            echo "<th>Jenis Kelamin</th>";
-                            echo "<th>No. HP</th>";
-                            echo "<th>Aksi</th>";
-                        echo "</tr>";
-                    while ($row = mysqli_fetch_array($result)) {
-                        $kelamin = ($row['jenis_kelamin'] == "L") ? "Laki-laki" : "Perempuan";
-                        echo "<tr>";
-                            echo "<td>" . $no . "</td>";
-                            echo "<td>" . $row['nama'] . "</td>";
-                            echo "<td>" . $row['alamat'] . "</td>";
-                            echo "<td>" . $kelamin . "</td>";
-                            echo "<td>" . $row['no_telp'] . "</td>";
-                            echo "<td>";
-                                echo "<a href='edit.php?id=" . $row['id'] . "' class='btn-edit'>Edit</a><br>";
-                                echo "<a href='#' data-id='" . $row['id'] . "' data-nama='" . $row['nama'] . "' class='btn-hapus'>Hapus</a>";
-                            echo "</td>";
-                        echo "</tr>";
-                        $no++;
-                    }
-                    echo "</table>";
-                } else {
-                    echo "tidak ada data";
+            <a class="btn btn-success mt-2" href="create.php">Tambah Data</a>
+            <br><br>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Alamat</th>
+                    <th>No. Telp</th>
+                    <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                $no = 1;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <tr>
+                        <td><?php echo $no++; ?></td>
+                        <td><?php echo $row['nama']; ?></td>
+                        <td><?php echo ($row['jenis_kelamin'] == 'L') ? 'Laki-laki' : 'Perempuan'; ?></td>
+                        <td><?php echo $row['alamat']; ?></td>
+                        <td><?php echo $row['no_telp']; ?></td>
+                        <td>
+                            <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
+                            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#hapusModal" data-id="<?php echo $row['id']; ?>">Hapus</a>
+                        </td>
+                    </tr>
+                    <?php
                 }
-                mysqli_close($koneksi);
-            ?>
+                ?>
+                </tbody>
+            </table>
+
+            <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="hapusModalLabel">Konfirmasi Hapus</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Apakah Anda yakin ingin menghapus data anggota dengan nama "<span id="nama-anggota"></span>"?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <a href="#" id="hapus-link" class="btn btn-danger">Hapus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script>
-            document.getElementsByClassName("btn-hapus")
+            $(document).ready(function() {
+                $('#hapusModal').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget);
+                    var id = button.data('id');
+                    var nama = button.data('nama');
+
+                    $('#nama-anggota').text(nama);
+                    $('#hapus-link').attr('href', 'proses.php?aksi=hapus&id=' + id);
+                });
+            });
         </script>
+
     </body>
 </html>
