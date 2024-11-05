@@ -35,7 +35,7 @@
                             echo "<td>" . $kelamin . "</td>";
                             echo "<td>" . $row['no_telp'] . "</td>";
                             echo "<td>";
-                                echo "<a href='edit.php?id=" . $row['id'] . "' class='btn-edit'>Edit</a><br>";
+                                echo "<a href='edit.php?id=" . $row['id'] . "' class='btn-edit'>Edit</a>";
                                 echo "<a href='#' onclick='konfirmasiHapus(" . $row['id'] . ", \"" . $row['nama'] . "\")' class='btn-hapus'>Hapus</a>";
                             echo "</td>";
                         echo "</tr>";
