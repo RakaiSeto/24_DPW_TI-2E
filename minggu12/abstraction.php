@@ -1,10 +1,10 @@
 <?php
 
-interface Shape {
-    public function calculateArea();
+abstract class Shape {
+    abstract public function calculateArea();
 }
 
-class Circle implements Shape {
+class Circle extends Shape {
     private $radius;
 
     public function __construct($radius) {
@@ -12,11 +12,11 @@ class Circle implements Shape {
     }
 
     public function calculateArea() {
-        return 3.14 * $this->radius * $this->radius;
+        return pi() * pow($this->radius, 2);
     }
-}   
+}
 
-class Rectangle implements Shape {
+class Rectangle extends Shape {
     private $width;
     private $height;
 
@@ -30,13 +30,8 @@ class Rectangle implements Shape {
     }
 }
 
-function printArea(Shape $shape) {
-    echo "Area: " . $shape->calculateArea() . "<br>";
-}
-
 $circle = new Circle(5);
 $rectangle = new Rectangle(4, 6);
 
-printArea($circle);
-printArea($rectangle);
-?>
+echo "Area of Circle: " . $circle->calculateArea() . "<br>";
+echo "Area of Rectangle: " . $rectangle->calculateArea() . "<br>";
