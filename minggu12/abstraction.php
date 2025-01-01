@@ -1,37 +1,32 @@
 <?php
 
-abstract class Shape {
-    abstract public function calculateArea();
+interface Shape {
+    public function calculateArea();
 }
 
-class Circle extends Shape {
-    private $radius;
+interface Color {
+    public function getColor();
+}
 
-    public function __construct($radius) {
+class Circle implements Shape, Color {
+    private $radius;
+    private $color;
+
+    public function __construct($radius, $color) {
         $this->radius = $radius;
+        $this->color = $color;
     }
 
     public function calculateArea() {
         return pi() * pow($this->radius, 2);
     }
-}
 
-class Rectangle extends Shape {
-    private $width;
-    private $height;
-
-    public function __construct($width, $height) {
-        $this->width = $width;
-        $this->height = $height;
-    }
-
-    public function calculateArea() {
-        return $this->width * $this->height;
+    public function getColor() {
+        return $this->color;
     }
 }
 
-$circle = new Circle(5);
-$rectangle = new Rectangle(4, 6);
+$circle = new Circle(5, "Blue");
 
 echo "Area of Circle: " . $circle->calculateArea() . "<br>";
-echo "Area of Rectangle: " . $rectangle->calculateArea() . "<br>";
+echo "Color of Circle: " . $circle->getColor() . "<br>";
