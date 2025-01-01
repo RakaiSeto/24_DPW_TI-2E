@@ -1,8 +1,8 @@
 <?php
-define('HOST', 'localhost');
-define('USER', 'root');
-define('PASS', '');
-define('DB1', 'prakwebdb');
-
-// buat koneksinya
-$db1 = new mysqli(HOST, USER, PASS, DB1);
+$serverName = "195.85.19.218,1433";
+$connectionOptions = array(
+    "Database" => "prakwebdb",
+    "Uid" => "PBL_ADMIN",
+    "PWD" => "TatibPastiBisa123"
+);
+$koneksi = sqlsrv_connect($serverName, $connectionOptions);

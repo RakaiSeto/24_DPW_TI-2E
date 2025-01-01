@@ -9,9 +9,8 @@
         include("koneksi.php");
         $id = $_GET['id'];
         $query = "SELECT * FROM anggota WHERE id = $id";
-        $result = mysqli_query($koneksi, $query);
-        $row = mysqli_fetch_assoc($result);
-        mysqli_close($koneksi);
+        $result = sqlsrv_query($koneksi, $query);
+        $row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
         ?>
         <div class="container mt-4">
             <h2>Edit Data Anggota</h2>
