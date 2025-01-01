@@ -38,7 +38,7 @@
                 <form class="border-1 rounded-3 bg-light w-50 border border-black p-5" id="loginForm">
                     <div class="mb-3">
                         <label class="form-label">Lantai</label>
-                        <input type="number" value="1" class="form-control" id="priceFloor" aria-describedby="emailHelp">
+                        <input type="number" value="1" min="1" class="form-control" id="priceFloor" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Room Type</label>
@@ -50,10 +50,10 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Jumlah Hari</label>
-                        <input type="number" value="1" class="form-control" id="priceDays" aria-describedby="emailHelp">
+                        <input type="number" value="1" min="1" class="form-control" id="priceDays" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Room Type</label>
+                        <label class="form-label">Diskon</label>
                         <select class="form-select" id="priceDiscount">
                             <option selected value="none">Tidak Ada</option>
                             <option value="member">Member</option>
@@ -86,13 +86,13 @@
                     $('#loginForm').removeClass('w-50').addClass('w-75');
                 }
 
-                $("#priceDays").keyup(function (event) {
+                $("#priceDays").focusout(function (event) {
                     if ($(this).val() < 1) {
                         $(this).val(1);
                     }
                 })
 
-                $("#priceFloor").keyup(function (event) {
+                $("#priceFloor").focusout(function (event) {
                     if ($(this).val() < 1) {
                         $(this).val(1);
                     }
